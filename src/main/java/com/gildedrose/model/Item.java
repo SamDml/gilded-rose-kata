@@ -1,6 +1,6 @@
 package com.gildedrose.model;
 
-public class Item {
+public abstract class Item {
 
     public String name;
 
@@ -13,6 +13,8 @@ public class Item {
         this.sellIn = sellIn;
         this.quality = quality;
     }
+
+    abstract void updateQuality();
 
    @Override
    public String toString() {

@@ -6,6 +6,7 @@ public class BackstagePassesItem extends Item {
 		super(name, sellIn, quality);
 	}
 
+	@Override
 	public void updateQuality() {
 
 		if (super.quality < 50) {

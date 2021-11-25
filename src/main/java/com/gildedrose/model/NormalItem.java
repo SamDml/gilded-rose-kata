@@ -6,6 +6,7 @@ public class NormalItem extends Item {
 		super(name, sellIn, quality);
 	}
 
+	@Override
 	public void updateQuality() {
 
 		if (super.quality > 0) {
