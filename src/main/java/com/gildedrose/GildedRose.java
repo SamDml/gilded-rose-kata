@@ -1,19 +1,23 @@
 package com.gildedrose;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.gildedrose.model.Item;
 
 class GildedRose {
-	Item[] items;
 
-	public GildedRose(Item[] items) {
+	public List<Item> items = new ArrayList<Item>();
+
+	public GildedRose(List<Item> items) {
 		this.items = items;
 	}
 
 	public void updateQuality() {
 
-		for (int i = 0; i < items.length; i++) {
+		for (Item item : items) {
 
-			items[i].updateQuality();
+			item.updateQuality();
 		}
 	}
 

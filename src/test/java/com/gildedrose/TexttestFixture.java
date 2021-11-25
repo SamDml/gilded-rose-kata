@@ -1,5 +1,8 @@
 package com.gildedrose;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.gildedrose.model.Item;
 import com.gildedrose.model.ItemFactory;
 
@@ -9,15 +12,15 @@ public class TexttestFixture {
 
     public static String resultText() {
 
-    	Item[] items = createItems();
+    	List<Item> items = createItems();
         GildedRose app = new GildedRose(items);
 
         return updateItemsForDaysAndReturnResult(app);
     }
 
-    private static Item[] createItems() {
+    private static List<Item> createItems() {
 
-    	return new Item[] {
+    	return Arrays.asList(new Item[] {
     			ItemFactory.normalItem("+5 Dexterity Vest", 10, 20),
     			ItemFactory.agedBrieItem(2, 0),
                 ItemFactory.normalItem("Elixir of the Mongoose", 5, 7),
@@ -25,7 +28,7 @@ public class TexttestFixture {
                 ItemFactory.sulfurasItem(-1, 80),
                 ItemFactory.backstagePassesItem(15, 20),
                 ItemFactory.backstagePassesItem(10, 49),
-                ItemFactory.backstagePassesItem(5, 49)};
+                ItemFactory.backstagePassesItem(5, 49)});
     }
 
     private static String updateItemsForDaysAndReturnResult(GildedRose app) {

@@ -7,16 +7,19 @@ import com.gildedrose.model.ItemFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 class GildedRoseTest {
 
 	private static final String NAME_FIRST_ITEM = "item 1";
 
     @Test
     void nameFirstItemEqualsNameFirstAddedItem() {
-        Item[] items = new Item[] { ItemFactory.normalItem(NAME_FIRST_ITEM, 0, 0) };
+        List<Item> items = Arrays.asList(new Item[] { ItemFactory.normalItem(NAME_FIRST_ITEM, 0, 0) });
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals(NAME_FIRST_ITEM, app.items[0].name);
+        assertEquals(NAME_FIRST_ITEM, app.items.get(0).name);
     }
 
     @Test
