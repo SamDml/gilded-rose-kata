@@ -13,8 +13,8 @@ public class BackstagePassesItem extends Item {
 			super.quality = super.quality + 1;
 		}
 
-		if (super.sellIn < 11) {
-			if (super.quality < 50) {
+		if (super.quality < 50) {
+			if (super.sellIn < 11) {
 				super.quality = super.quality + 1;
 			}
 		}
