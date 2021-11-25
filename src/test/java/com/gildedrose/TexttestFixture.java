@@ -24,8 +24,8 @@ public class TexttestFixture {
     			ItemFactory.normalItem("+5 Dexterity Vest", 10, 20),
     			ItemFactory.agedBrieItem(2, 0),
                 ItemFactory.normalItem("Elixir of the Mongoose", 5, 7),
-                ItemFactory.sulfurasItem(0, 80),
-                ItemFactory.sulfurasItem(-1, 80),
+                ItemFactory.sulfurasItem(0),
+                ItemFactory.sulfurasItem(-1),
                 ItemFactory.backstagePassesItem(15, 20),
                 ItemFactory.backstagePassesItem(10, 49),
                 ItemFactory.backstagePassesItem(5, 49)});

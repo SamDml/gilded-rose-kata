@@ -25,8 +25,8 @@ public class ItemFactory {
 		return new BackstagePassesItem("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);
 	}
 
-	public static Item sulfurasItem(int sellIn, int quality) {
-		return new SulfurasItem("Sulfuras, Hand of Ragnaros", sellIn, quality);
+	public static Item sulfurasItem(int sellIn) {
+		return new SulfurasItem("Sulfuras, Hand of Ragnaros", sellIn, 80);
 	}
 
 }
