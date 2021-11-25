@@ -1,5 +1,8 @@
 package com.gildedrose;
 
+import java.util.Arrays;
+import java.util.List;
+
 class GildedRose {
     Item[] items;
 
@@ -9,14 +12,14 @@ class GildedRose {
 
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
-            if (!items[i].name.equals("Aged Brie")
-                    && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (items[i].quality > 0) {
-                    if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
+            if ( ! isSpecialItem(items[i])) {
+            		if (items[i].quality > 0) {
                         items[i].quality = items[i].quality - 1;
                     }
-                }
-            } else {
+            }
+
+            if (items[i].name.equals("Aged Brie")
+                    || items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (items[i].quality < 50) {
                     items[i].quality = items[i].quality + 1;
 
@@ -58,5 +61,16 @@ class GildedRose {
                 }
             }
         }
+    }
+
+    private boolean isSpecialItem(Item item) {
+
+    	List<String> specialItemNames = Arrays.asList(new String[]{
+    			"Aged Brie", 
+    			"Backstage passes to a TAFKAL80ETC concert", 
+    			"Sulfuras, Hand of Ragnaros"});
+
+    	return specialItemNames.contains(item.name);
+
     }
 }
