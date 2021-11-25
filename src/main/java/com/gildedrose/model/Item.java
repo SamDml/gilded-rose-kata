@@ -2,11 +2,11 @@ package com.gildedrose.model;
 
 public abstract class Item {
 
-    public String name;
+    protected String name;
 
-    public int sellIn;
+    protected int sellIn;
 
-    public int quality;
+    protected int quality;
 
     public Item(String name, int sellIn, int quality) {
         this.name = name;
@@ -14,7 +14,19 @@ public abstract class Item {
         this.quality = quality;
     }
 
-    public abstract void updateQuality();
+    public String getName() {
+		return name;
+	}
+
+	public int getSellIn() {
+		return sellIn;
+	}
+
+	public int getQuality() {
+		return quality;
+	}
+
+	public abstract void updateQuality();
 
    @Override
    public String toString() {

@@ -19,7 +19,7 @@ class GildedRoseTest {
         List<Item> items = Arrays.asList(new Item[] { ItemFactory.normalItem(NAME_FIRST_ITEM, 0, 0) });
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals(NAME_FIRST_ITEM, app.items.get(0).name);
+        assertEquals(NAME_FIRST_ITEM, app.items.get(0).getName());
     }
 
     @Test
