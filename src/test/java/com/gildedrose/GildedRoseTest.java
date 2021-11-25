@@ -16,4 +16,9 @@ class GildedRoseTest {
         assertEquals(NAME_FIRST_ITEM, app.items[0].name);
     }
 
+    @Test
+	public void textTest() {
+		assertEquals(TexttestFixture.expectedText(), TexttestFixture.resultText());
+	}
+
 }
