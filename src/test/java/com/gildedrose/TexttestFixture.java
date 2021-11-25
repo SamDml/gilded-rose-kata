@@ -8,14 +8,14 @@ import com.gildedrose.model.ItemFactory;
 
 public class TexttestFixture {
 
-	public static final int DAYS = 5;
+	private static final int DAYS = 5;
 
     public static String resultText() {
 
     	List<Item> items = createItems();
         GildedRose app = new GildedRose(items);
 
-        return updateItemsForDaysAndReturnResult(app);
+        return updateItemQualityForDaysAndReturnResult(app);
     }
 
     private static List<Item> createItems() {
@@ -31,7 +31,7 @@ public class TexttestFixture {
                 ItemFactory.backstagePassesItem(5, 49)});
     }
 
-    private static String updateItemsForDaysAndReturnResult(GildedRose app) {
+    private static String updateItemQualityForDaysAndReturnResult(GildedRose app) {
 
     	StringBuilder result = new StringBuilder("");
 
