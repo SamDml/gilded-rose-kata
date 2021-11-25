@@ -2,6 +2,8 @@ package com.gildedrose;
 
 import org.junit.jupiter.api.Test;
 
+import com.gildedrose.model.Item;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GildedRoseTest {
