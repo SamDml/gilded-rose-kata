@@ -6,12 +6,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GildedRoseTest {
 
+	private static final String NAME_FIRST_ITEM = "item 1";
+
     @Test
-    void foo() {
-        Item[] items = new Item[] { new Item("foo", 0, 0) };
+    void nameFirstItemEqualsNameFirstAddedItem() {
+        Item[] items = new Item[] { new Item(NAME_FIRST_ITEM, 0, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals("fixme", app.items[0].name);
+        assertEquals(NAME_FIRST_ITEM, app.items[0].name);
     }
 
 }
