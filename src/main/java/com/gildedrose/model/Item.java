@@ -14,7 +14,7 @@ public abstract class Item {
         this.quality = quality;
     }
 
-    abstract void updateQuality();
+    public abstract void updateQuality();
 
    @Override
    public String toString() {
