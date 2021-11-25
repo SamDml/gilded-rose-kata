@@ -13,7 +13,9 @@ class GildedRose {
 	public void updateQuality() {
 		for (int i = 0; i < items.length; i++) {
 
-			if (items[i].name.equals("Aged Brie") || items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+			if (items[i].name.equals("Aged Brie") 
+					|| items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")
+					|| items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
 
 				updateItem(items[i]);
 
@@ -112,11 +114,11 @@ class GildedRose {
 				item.quality = item.quality - item.quality;
 			}
 
+		} else if (itemName.equals("Sulfuras, Hand of Ragnaros")) {
+			// do nothing
 		}
-//
-//		if (itemName.equals("Sulfuras, Hand of Ragnaros")) {
-//
-//		}
+
+
 	}
 
 	private boolean isSpecialItem(Item item) {
