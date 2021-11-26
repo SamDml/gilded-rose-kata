@@ -1,37 +1,109 @@
 package com.gildedrose;
 
+import java.util.Arrays;
+import java.util.List;
+
+import com.gildedrose.model.Item;
+import com.gildedrose.model.ItemFactory;
+
 public class TexttestFixture {
-    public static void main(String[] args) {
-        System.out.println("OMGHAI!");
 
-        Item[] items = new Item[] {
-                new Item("+5 Dexterity Vest", 10, 20), //
-                new Item("Aged Brie", 2, 0), //
-                new Item("Elixir of the Mongoose", 5, 7), //
-                new Item("Sulfuras, Hand of Ragnaros", 0, 80), //
-                new Item("Sulfuras, Hand of Ragnaros", -1, 80),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
-                // this conjured item does not work properly yet
-                new Item("Conjured Mana Cake", 3, 6) };
+	private static final int DAYS = 5;
 
+    public static String resultText() {
+
+    	List<Item> items = createItems();
         GildedRose app = new GildedRose(items);
 
-        int days = 2;
-        if (args.length > 0) {
-            days = Integer.parseInt(args[0]) + 1;
-        }
+        return updateItemQualityForDaysAndReturnResult(app);
+    }
 
-        for (int i = 0; i < days; i++) {
-            System.out.println("-------- day " + i + " --------");
-            System.out.println("name, sellIn, quality");
-            for (Item item : items) {
-                System.out.println(item);
+    private static List<Item> createItems() {
+
+    	return Arrays.asList(new Item[] {
+    			ItemFactory.normalItem("+5 Dexterity Vest", 10, 20),
+    			ItemFactory.agedBrieItem(2, 0),
+                ItemFactory.normalItem("Elixir of the Mongoose", 5, 7),
+                ItemFactory.sulfurasItem(0),
+                ItemFactory.sulfurasItem(-1),
+                ItemFactory.backstagePassesItem(15, 20),
+                ItemFactory.backstagePassesItem(10, 49),
+                ItemFactory.backstagePassesItem(5, 49)});
+    }
+
+    private static String updateItemQualityForDaysAndReturnResult(GildedRose app) {
+
+    	StringBuilder result = new StringBuilder("");
+
+    	for (int i = 0; i < DAYS; i++) {
+        	result.append("-------- day " + i + " --------\n");
+        	result.append("name, sellIn, quality\n");
+            for (Item item : app.items) {
+            	result.append(item).append("\n");
             }
-            System.out.println();
+            result.append("\n");
             app.updateQuality();
         }
+
+        return result.toString();
+    }
+
+    public static String expectedText() {
+    	return "-------- day 0 --------\n" + 
+    			"name, sellIn, quality\n" + 
+    			"+5 Dexterity Vest, 10, 20\n" + 
+    			"Aged Brie, 2, 0\n" + 
+    			"Elixir of the Mongoose, 5, 7\n" + 
+    			"Sulfuras, Hand of Ragnaros, 0, 80\n" + 
+    			"Sulfuras, Hand of Ragnaros, -1, 80\n" + 
+    			"Backstage passes to a TAFKAL80ETC concert, 15, 20\n" + 
+    			"Backstage passes to a TAFKAL80ETC concert, 10, 49\n" + 
+    			"Backstage passes to a TAFKAL80ETC concert, 5, 49\n" + 
+    			"\n" + 
+    			"-------- day 1 --------\n" + 
+    			"name, sellIn, quality\n" + 
+    			"+5 Dexterity Vest, 9, 19\n" + 
+    			"Aged Brie, 1, 1\n" + 
+    			"Elixir of the Mongoose, 4, 6\n" + 
+    			"Sulfuras, Hand of Ragnaros, 0, 80\n" + 
+    			"Sulfuras, Hand of Ragnaros, -1, 80\n" + 
+    			"Backstage passes to a TAFKAL80ETC concert, 14, 21\n" + 
+    			"Backstage passes to a TAFKAL80ETC concert, 9, 50\n" + 
+    			"Backstage passes to a TAFKAL80ETC concert, 4, 50\n" + 
+    			"\n" + 
+    			"-------- day 2 --------\n" + 
+    			"name, sellIn, quality\n" + 
+    			"+5 Dexterity Vest, 8, 18\n" + 
+    			"Aged Brie, 0, 2\n" + 
+    			"Elixir of the Mongoose, 3, 5\n" + 
+    			"Sulfuras, Hand of Ragnaros, 0, 80\n" + 
+    			"Sulfuras, Hand of Ragnaros, -1, 80\n" + 
+    			"Backstage passes to a TAFKAL80ETC concert, 13, 22\n" + 
+    			"Backstage passes to a TAFKAL80ETC concert, 8, 50\n" + 
+    			"Backstage passes to a TAFKAL80ETC concert, 3, 50\n" + 
+    			"\n" + 
+    			"-------- day 3 --------\n" + 
+    			"name, sellIn, quality\n" + 
+    			"+5 Dexterity Vest, 7, 17\n" + 
+    			"Aged Brie, -1, 4\n" + 
+    			"Elixir of the Mongoose, 2, 4\n" + 
+    			"Sulfuras, Hand of Ragnaros, 0, 80\n" + 
+    			"Sulfuras, Hand of Ragnaros, -1, 80\n" + 
+    			"Backstage passes to a TAFKAL80ETC concert, 12, 23\n" + 
+    			"Backstage passes to a TAFKAL80ETC concert, 7, 50\n" + 
+    			"Backstage passes to a TAFKAL80ETC concert, 2, 50\n" + 
+    			"\n" + 
+    			"-------- day 4 --------\n" + 
+    			"name, sellIn, quality\n" + 
+    			"+5 Dexterity Vest, 6, 16\n" + 
+    			"Aged Brie, -2, 6\n" + 
+    			"Elixir of the Mongoose, 1, 3\n" + 
+    			"Sulfuras, Hand of Ragnaros, 0, 80\n" + 
+    			"Sulfuras, Hand of Ragnaros, -1, 80\n" + 
+    			"Backstage passes to a TAFKAL80ETC concert, 11, 24\n" + 
+    			"Backstage passes to a TAFKAL80ETC concert, 6, 50\n" + 
+    			"Backstage passes to a TAFKAL80ETC concert, 1, 50\n" + 
+    			"\n";
     }
 
 }
