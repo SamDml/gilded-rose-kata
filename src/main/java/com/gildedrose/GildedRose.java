@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.gildedrose.model.Item;
 
-class GildedRose {
+public class GildedRose {
 
 	public List<Item> items = new ArrayList<Item>();
 
