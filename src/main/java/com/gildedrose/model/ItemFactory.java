@@ -1,6 +1,6 @@
 package com.gildedrose.model;
 
-import com.gildedrose.QualityLimitException;
+import com.gildedrose.exceptions.QualityLimitException;
 
 public class ItemFactory {
 

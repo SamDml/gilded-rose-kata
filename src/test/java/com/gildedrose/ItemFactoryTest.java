@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
+import com.gildedrose.exceptions.QualityLimitException;
 import com.gildedrose.model.ItemFactory;
 
 public class ItemFactoryTest {
