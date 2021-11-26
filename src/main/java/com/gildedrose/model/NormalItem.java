@@ -1,27 +1,52 @@
 package com.gildedrose.model;
 
-public class NormalItem extends Item {
+public class NormalItem implements Item {
+
+	private String name;
+
+	private int sellIn;
+
+	private int quality;
 
 	NormalItem(String name, int sellIn, int quality) {
-		super(name, sellIn, quality);
+		this.name = name;
+        this.sellIn = sellIn;
+        this.quality = quality;
+	}
+
+    public String getName() {
+		return name;
+	}
+
+	public int getSellIn() {
+		return sellIn;
+	}
+
+	public int getQuality() {
+		return quality;
 	}
 
 	@Override
 	public void updateQuality() {
 
-		if (super.quality > 0) {
+		if (quality > 0) {
 
-			super.quality = super.quality - 1;
+			quality = quality - 1;
 
-			super.sellIn = super.sellIn - 1;
+			sellIn = sellIn - 1;
 
-			if (super.sellIn < 0) {
-				if (super.quality > 0) {
+			if (sellIn < 0) {
+				if (quality > 0) {
 
-					super.quality = super.quality - 1;
+					quality = quality - 1;
 				}
 			}
 		}
 	}
+
+   @Override
+   public String toString() {
+        return this.name + ", " + this.sellIn + ", " + this.quality;
+    }
 
 }

@@ -1,35 +1,13 @@
 package com.gildedrose.model;
 
-public abstract class Item {
+public interface Item {
 
-    protected String name;
+    String getName();
 
-    protected int sellIn;
+	int getSellIn();
 
-    protected int quality;
+	int getQuality();
 
-    public Item(String name, int sellIn, int quality) {
-        this.name = name;
-        this.sellIn = sellIn;
-        this.quality = quality;
-    }
+	void updateQuality();
 
-    public String getName() {
-		return name;
-	}
-
-	public int getSellIn() {
-		return sellIn;
-	}
-
-	public int getQuality() {
-		return quality;
-	}
-
-	public abstract void updateQuality();
-
-   @Override
-   public String toString() {
-        return this.name + ", " + this.sellIn + ", " + this.quality;
-    }
 }
