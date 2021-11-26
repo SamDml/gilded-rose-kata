@@ -90,6 +90,16 @@ public class ItemTest {
 	}
 
 	@Test
+	public void normalItemItemQualityDoesNotDecreaseByTwoOnUpdateQualityWhenSellInBecomesNegativeAndQualityBecomesZero() {
+
+		Item item = ItemFactory.normalItem("item 1", 0, 1);
+
+		item.updateQuality();
+
+		assertEquals(0, item.getQuality());
+	}
+
+	@Test
 	public void agedBrieItemItemQualityIncreasesByOneOnUpdateQualityBelow50() {
 
 		Item item;
