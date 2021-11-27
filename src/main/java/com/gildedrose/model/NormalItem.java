@@ -10,11 +10,11 @@ public class NormalItem implements Item {
 
 	NormalItem(String name, int sellIn, int quality) {
 		this.name = name;
-        this.sellIn = sellIn;
-        this.quality = quality;
+		this.sellIn = sellIn;
+		this.quality = quality;
 	}
 
-    public String getName() {
+	public String getName() {
 		return name;
 	}
 
@@ -29,24 +29,28 @@ public class NormalItem implements Item {
 	@Override
 	public void updateQuality() {
 
-		sellIn = sellIn - 1;
+		decreaseSellIn();
 
-		if (quality > 0) {
+		decreaseQuality();
 
-			quality = quality - 1;
-
-			if (sellIn < 0) {
-				if (quality > 0) {
-
-					quality = quality - 1;
-				}
-			}
+		if (sellIn < 0) {
+			decreaseQuality();
 		}
 	}
 
-   @Override
-   public String toString() {
-        return this.name + ", " + this.sellIn + ", " + this.quality;
-    }
+	private void decreaseSellIn() {
+		sellIn = sellIn - 1;
+	}
+
+	private void decreaseQuality() {
+		if (quality > 0) {
+			quality = quality - 1;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return this.name + ", " + this.sellIn + ", " + this.quality;
+	}
 
 }
