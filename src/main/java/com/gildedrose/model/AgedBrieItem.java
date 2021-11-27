@@ -29,17 +29,23 @@ public class AgedBrieItem implements Item {
 	@Override
 	public void updateQuality() {
 
+		decreaseSellIn();
+
+		increaseQuality();
+
+		if (sellIn < 0) {
+			increaseQuality();
+
+		}
+	}
+
+	private void decreaseSellIn() {
 		sellIn = sellIn - 1;
+	}
 
+	public void increaseQuality() {
 		if (quality < 50) {
-
 			quality = quality + 1;
-
-			if (sellIn < 0) {
-				if (quality < 50) {
-					quality = quality + 1;
-				}
-			}
 		}
 	}
 
