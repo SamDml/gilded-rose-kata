@@ -26,5 +26,10 @@ class GildedRoseTest {
 	public void textTest() {
 		assertEquals(TexttestFixture.expectedText(), TexttestFixture.resultText());
 	}
+    
+    @Test
+	public void textTestLong() {
+		assertEquals(TexttestFixtureLong.expectedText(), TexttestFixtureLong.resultText());
+	}
 
 }
