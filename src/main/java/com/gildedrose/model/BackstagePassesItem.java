@@ -10,8 +10,8 @@ public class BackstagePassesItem implements Item {
 
 	BackstagePassesItem(String name, int sellIn, int quality) {
 		this.name = name;
-        this.sellIn = sellIn;
-        this.quality = quality;
+		this.sellIn = sellIn;
+		this.quality = quality;
 	}
 
 	public String getName() {
@@ -29,26 +29,34 @@ public class BackstagePassesItem implements Item {
 	@Override
 	public void updateQuality() {
 
-		if (quality < 50) {
-			quality = quality + 1;
-		}
+		increaseQuality();
 
-		if (quality < 50) {
-			if (sellIn < 11) {
-				quality = quality + 1;
-			}
+		if (sellIn < 11) {
+			increaseQuality();
 		}
 
 		if (sellIn < 6) {
-			if (quality < 50) {
-				quality = quality + 1;
-			}
+			increaseQuality();
 		}
 
-		sellIn = sellIn - 1;
+		decreaseSellIn();
 
+		expire();
+	}
+
+	private void decreaseSellIn() {
+		sellIn = sellIn - 1;
+	}
+
+	public void increaseQuality() {
+		if (quality < 50) {
+			quality = quality + 1;
+		}
+	}
+
+	private void expire() {
 		if (sellIn < 0) {
-			quality = quality - quality;
+			quality = 0;
 		}
 	}
 
