@@ -25,7 +25,7 @@ public class SulfurasItemTest {
 
 		Item item = ItemFactory.sulfurasItem(10);
 
-		item.updateQuality();
+		item.doAge();
 
 		assertEquals(10, item.getSellIn());
 	}
@@ -35,7 +35,7 @@ public class SulfurasItemTest {
 
 		Item item = ItemFactory.sulfurasItem(10);
 
-		item.updateQuality();
+		item.doAge();
 
 		assertEquals(80, item.getQuality());
 	}

@@ -27,19 +27,24 @@ public class NormalItem implements Item {
 	}
 
 	@Override
-	public void updateQuality() {
+	public void doAge() {
 
 		decreaseSellIn();
+		updateQuality();
+	}
+
+	private void decreaseSellIn() {
+		sellIn = sellIn - 1;
+	}
+
+	@Override
+	public void updateQuality() {
 
 		decreaseQuality();
 
 		if (sellIn < 0) {
 			decreaseQuality();
 		}
-	}
-
-	private void decreaseSellIn() {
-		sellIn = sellIn - 1;
 	}
 
 	private void decreaseQuality() {

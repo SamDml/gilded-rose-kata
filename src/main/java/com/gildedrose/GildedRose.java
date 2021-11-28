@@ -17,7 +17,7 @@ public class GildedRose {
 
 		for (Item item : items) {
 
-			item.updateQuality();
+			item.doAge();
 		}
 	}
 

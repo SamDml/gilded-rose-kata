@@ -27,6 +27,12 @@ public class SulfurasItem implements Item {
 	}
 
 	@Override
+	public void doAge() {
+
+		// do nothing
+	}
+
+	@Override
 	public void updateQuality() {
 
 		// do nothing
