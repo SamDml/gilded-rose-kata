@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import com.gildedrose.model.Item;
 import com.gildedrose.model.ItemFactory;
+import com.gildedrose.model.TexttestFixture;
+import com.gildedrose.model.TexttestFixtureLong;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

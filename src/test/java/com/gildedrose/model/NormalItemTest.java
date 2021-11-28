@@ -1,11 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
-
-import com.gildedrose.model.Item;
-import com.gildedrose.model.ItemFactory;
 
 public class NormalItemTest {
 
