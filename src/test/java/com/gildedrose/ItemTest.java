@@ -1,6 +1,7 @@
 package com.gildedrose;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,6 +9,47 @@ import com.gildedrose.model.Item;
 import com.gildedrose.model.ItemFactory;
 
 public class ItemTest {
+
+	@Test
+	public void normalItemItemNameReturnsItemName() {
+
+		String itemName = "item 1";
+		Item item = ItemFactory.normalItem("item 1", 10, 10);
+
+		String returnedItemName = item.getName();
+
+		assertEquals(itemName, returnedItemName);
+	}
+
+	@Test
+	public void agedBrieItemItemNameReturnsItemName() {
+
+		Item item = ItemFactory.agedBrieItem(10, 10);
+
+		String returnedItemName = item.getName();
+
+		assertTrue(returnedItemName instanceof String);
+	}
+
+	@Test
+	public void backstagePassesItemItemNameReturnsItemName() {
+
+		Item item = ItemFactory.backstagePassesItem(10, 10);
+
+		String returnedItemName = item.getName();
+
+		assertTrue(returnedItemName instanceof String);
+	}
+
+	@Test
+	public void sulfurasItemItemNameReturnsItemName() {
+
+		Item item = ItemFactory.sulfurasItem(10);
+
+		String returnedItemName = item.getName();
+
+		assertTrue(returnedItemName instanceof String);
+	}
 
 	@Test
 	public void normalItemItemSellinDecreasesBy1AfterUpdateQuality() {
@@ -116,6 +158,16 @@ public class ItemTest {
 	public void agedBrieItemItemQualityDoesNotExceed50AfterUpdateQuality() {
 
 		Item item = ItemFactory.agedBrieItem(10, 50);
+
+		item.updateQuality();
+
+		assertEquals(50, item.getQuality());
+	}
+
+	@Test
+	public void agedBrieItemItemQualityOnlyIncreasesByOneWhenUpdateQualityOneBelow50() {
+
+		Item item = ItemFactory.agedBrieItem(10, 49);
 
 		item.updateQuality();
 
