@@ -1,12 +1,9 @@
-package com.gildedrose;
+package com.gildedrose.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
-
-import com.gildedrose.model.Item;
-import com.gildedrose.model.ItemFactory;
 
 public class AgedBrieItemTest {
 
@@ -25,7 +22,7 @@ public class AgedBrieItemTest {
 
 		Item item = ItemFactory.agedBrieItem(10, 10);
 
-		item.updateQuality();
+		item.doAge();
 
 		assertEquals(9, item.getSellIn());
 	}
@@ -37,7 +34,7 @@ public class AgedBrieItemTest {
 		for (int initialQuality = 0; initialQuality < 50; initialQuality++) {
 			item = ItemFactory.agedBrieItem(10, initialQuality);
 
-			item.updateQuality();
+			item.doAge();
 
 			assertEquals(initialQuality + 1, item.getQuality());
 		}
@@ -48,7 +45,7 @@ public class AgedBrieItemTest {
 
 		Item item = ItemFactory.agedBrieItem(10, 50);
 
-		item.updateQuality();
+		item.doAge();
 
 		assertEquals(50, item.getQuality());
 	}
@@ -58,7 +55,7 @@ public class AgedBrieItemTest {
 
 		Item item = ItemFactory.agedBrieItem(10, 49);
 
-		item.updateQuality();
+		item.doAge();
 
 		assertEquals(50, item.getQuality());
 	}

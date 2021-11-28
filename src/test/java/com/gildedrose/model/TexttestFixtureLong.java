@@ -1,10 +1,9 @@
-package com.gildedrose;
+package com.gildedrose.model;
 
 import java.util.Arrays;
 import java.util.List;
 
-import com.gildedrose.model.Item;
-import com.gildedrose.model.ItemFactory;
+import com.gildedrose.GildedRose;
 
 public class TexttestFixtureLong {
 

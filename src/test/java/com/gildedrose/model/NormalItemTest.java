@@ -1,11 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
-
-import com.gildedrose.model.Item;
-import com.gildedrose.model.ItemFactory;
 
 public class NormalItemTest {
 
@@ -25,7 +22,7 @@ public class NormalItemTest {
 
 		Item item = ItemFactory.normalItem("item 1", 10, 10);
 
-		item.updateQuality();
+		item.doAge();
 
 		assertEquals(9, item.getSellIn());
 	}
@@ -38,7 +35,7 @@ public class NormalItemTest {
 		for (int i = 5; i > 0; i--) {
 			item = ItemFactory.normalItem("item 1", i, oldQuality);
 
-			item.updateQuality();
+			item.doAge();
 
 			assertEquals(oldQuality - 1, item.getQuality());
 			oldQuality = item.getQuality();
@@ -53,7 +50,7 @@ public class NormalItemTest {
 		for (int i = 0; i >= -5; i--) {
 			item = ItemFactory.normalItem("item 1", i, oldQuality);
 
-			item.updateQuality();
+			item.doAge();
 
 			assertEquals(oldQuality - 2, item.getQuality());
 			oldQuality = item.getQuality();
@@ -65,7 +62,7 @@ public class NormalItemTest {
 
 		Item item = ItemFactory.normalItem("item 1", 10, 0);
 
-		item.updateQuality();
+		item.doAge();
 
 		assertEquals(0, item.getQuality());
 	}
@@ -75,7 +72,7 @@ public class NormalItemTest {
 
 		Item item = ItemFactory.normalItem("item 1", 0, 1);
 
-		item.updateQuality();
+		item.doAge();
 
 		assertEquals(0, item.getQuality());
 	}

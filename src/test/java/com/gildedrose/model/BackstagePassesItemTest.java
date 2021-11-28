@@ -1,12 +1,9 @@
-package com.gildedrose;
+package com.gildedrose.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
-
-import com.gildedrose.model.Item;
-import com.gildedrose.model.ItemFactory;
 
 public class BackstagePassesItemTest {
 
@@ -25,7 +22,7 @@ public class BackstagePassesItemTest {
 
 		Item item = ItemFactory.backstagePassesItem(10, 10);
 
-		item.updateQuality();
+		item.doAge();
 
 		assertEquals(9, item.getSellIn());
 	}
@@ -39,7 +36,7 @@ public class BackstagePassesItemTest {
 			item = ItemFactory.backstagePassesItem(i, 10);
 			oldQuality= item.getQuality();
 
-			item.updateQuality();
+			item.doAge();
 
 			assertEquals(oldQuality + 2, item.getQuality());
 			oldQuality = item.getQuality();
@@ -55,7 +52,7 @@ public class BackstagePassesItemTest {
 			item = ItemFactory.backstagePassesItem(i, 10);
 			oldQuality= item.getQuality();
 
-			item.updateQuality();
+			item.doAge();
 
 			assertEquals(oldQuality + 3, item.getQuality());
 			oldQuality = item.getQuality();
@@ -67,7 +64,7 @@ public class BackstagePassesItemTest {
 
 		Item item = ItemFactory.backstagePassesItem(0, 25);
 
-		item.updateQuality();
+		item.doAge();
 
 		assertEquals(0, item.getQuality());
 	}

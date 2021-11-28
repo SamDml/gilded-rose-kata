@@ -27,9 +27,19 @@ public class AgedBrieItem implements Item {
 	}
 
 	@Override
-	public void updateQuality() {
+	public void doAge() {
 
 		decreaseSellIn();
+
+		updateQuality();
+	}
+
+	private void decreaseSellIn() {
+		sellIn = sellIn - 1;
+	}
+
+	@Override
+	public void updateQuality() {
 
 		increaseQuality();
 
@@ -37,10 +47,6 @@ public class AgedBrieItem implements Item {
 			increaseQuality();
 
 		}
-	}
-
-	private void decreaseSellIn() {
-		sellIn = sellIn - 1;
 	}
 
 	public void increaseQuality() {

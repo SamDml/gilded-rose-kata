@@ -27,6 +27,16 @@ public class BackstagePassesItem implements Item {
 	}
 
 	@Override
+	public void doAge() {
+
+		updateQuality();
+
+		decreaseSellIn();
+
+		expire();
+	}
+
+	@Override
 	public void updateQuality() {
 
 		increaseQuality();
@@ -38,20 +48,16 @@ public class BackstagePassesItem implements Item {
 		if (sellIn < 6) {
 			increaseQuality();
 		}
-
-		decreaseSellIn();
-
-		expire();
-	}
-
-	private void decreaseSellIn() {
-		sellIn = sellIn - 1;
 	}
 
 	public void increaseQuality() {
 		if (quality < 50) {
 			quality = quality + 1;
 		}
+	}
+
+	private void decreaseSellIn() {
+		sellIn = sellIn - 1;
 	}
 
 	private void expire() {
