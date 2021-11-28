@@ -33,6 +33,13 @@ public class ItemFactory {
 		return new SulfurasItem("Sulfuras, Hand of Ragnaros", sellIn, 80);
 	}
 
+	public static Item conjuredItem(String name, int sellIn, int quality) {
+
+		validateQuality(quality);
+
+		return new ConjuredItem(new NormalItem(name, sellIn, quality));
+	}
+
 	private static void validateQuality(int quality) {
 
 		if (quality > MAX_QUALITY) {

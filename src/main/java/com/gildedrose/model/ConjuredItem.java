@@ -2,7 +2,7 @@ package com.gildedrose.model;
 
 public class ConjuredItem extends ItemDecorator {
 
-	public ConjuredItem(Item item) {
+	ConjuredItem(Item item) {
 		super(item);
 	}
 

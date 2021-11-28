@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import com.gildedrose.model.ConjuredItem;
 import com.gildedrose.model.Item;
 import com.gildedrose.model.ItemFactory;
 
@@ -14,7 +13,7 @@ public class ConjuredItemTest {
 	public void test() {
 		int initialQuality = 10;
 		Item normalItem = ItemFactory.normalItem("item 1", 10, initialQuality);
-		Item conjuredItem = new ConjuredItem(ItemFactory.normalItem("item 1", 10, initialQuality));
+		Item conjuredItem = ItemFactory.conjuredItem("item 2", 10, initialQuality);
 
 		normalItem.doAge();
 		conjuredItem.doAge();
