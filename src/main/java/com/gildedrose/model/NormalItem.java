@@ -14,14 +14,17 @@ public class NormalItem implements Item {
 		this.quality = quality;
 	}
 
+	@Override
 	public String getName() {
 		return name;
 	}
 
+	@Override
 	public int getSellIn() {
 		return sellIn;
 	}
 
+	@Override
 	public int getQuality() {
 		return quality;
 	}
