@@ -14,14 +14,17 @@ public class AgedBrieItem implements Item {
 		this.quality = quality;
 	}
 
+	@Override
 	public String getName() {
 		return name;
 	}
 
+	@Override
 	public int getSellIn() {
 		return sellIn;
 	}
 
+	@Override
 	public int getQuality() {
 		return quality;
 	}
@@ -49,7 +52,7 @@ public class AgedBrieItem implements Item {
 		}
 	}
 
-	public void increaseQuality() {
+	private void increaseQuality() {
 		if (quality < 50) {
 			quality = quality + 1;
 		}
